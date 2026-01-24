@@ -1,0 +1,15 @@
+module mux_16_1(
+    input  [15:0] D,   
+    input  [3:0]  S,   
+    output        Y
+);
+
+wire [3:0] w;   
+
+mux_4_1 M0 (.D(D[3:0]),    .S(S[1:0]), .Y(w[0]));
+mux_4_1 M1 (.D(D[7:4]),    .S(S[1:0]), .Y(w[1]));
+mux_4_1 M2 (.D(D[11:8]),   .S(S[1:0]), .Y(w[2]));
+mux_4_1 M3 (.D(D[15:12]),  .S(S[1:0]), .Y(w[3]));
+mux_4_1 M4 (.D(w), .S(S[3:2]), .Y(Y));
+
+endmodule
